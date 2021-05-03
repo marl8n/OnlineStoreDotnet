@@ -1,0 +1,33 @@
+﻿@model List<Client>
+
+@{
+    ViewData["Title"] = "Clients";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Ecommerce: Clients</h1>
+    <p>Welcome to the Clients</p>
+</div>
+<div class="table-container" style="display: flex; align-items: center; justify-content: center;">
+    <table>
+        <thead class="table table-dark table-hover">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Quantity to buy</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var product in @Model)
+        {
+            <tr>
+                <td>@product.UniqueId</td>
+                <td>@product.Name</td>
+                <td><input type="number" name="qProduct" id=@product.UniqueId></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

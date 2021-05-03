@@ -1,0 +1,38 @@
+﻿@model List<Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Ecommerce: Products </h1>
+    <p>Welcome to the Products</p>
+</div>
+<div class="table-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; ">
+    <form action="make-sale" method="post">
+        <table>
+        <thead class="table table-dark table-hover">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Quantity to buy</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var product in @Model)
+        {
+            <tr>
+                <td>@product.UniqueId</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Quantity</td>
+                <td><input type="number" name="Quantity" id=@product.UniqueId></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <input type="button" value="Add to cart" >
+    </form>
+</div>
